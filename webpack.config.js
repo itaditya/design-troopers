@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 const cssPlugin = new MiniCssExtractPlugin({
-  filename: 'style.[contenthash].css',
+  filename: 'style.css',
 });
 
 module.exports = {
@@ -24,7 +24,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     libraryTarget: 'umd',
-    library: 'UiKit',
+    library: 'DesignTroopers',
   },
   module: {
     rules: [
