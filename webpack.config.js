@@ -24,7 +24,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     libraryTarget: 'umd',
-    library: 'UiKit',
+    library: 'DesignTroopers',
   },
   module: {
     rules: [
