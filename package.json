@@ -1,7 +1,10 @@
 {
   "name": "design-troopers",
-  "version": "1.2.0",
-  "main": "src/index.js",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "files": [
+    "dist/*"
+  ],
   "license": "MIT",
   "scripts": {
     "gen:tokens": "node generateTokens.js > tokens.json",

@@ -7,16 +7,24 @@ const cssPlugin = new MiniCssExtractPlugin({
 });
 
 module.exports = {
-  externals : {
-    react : {
-      commonjs: 'react',
+  externals: {
+    react: {
+      root: 'React',
       commonjs2: 'react',
+      commonjs: 'react',
       amd: 'react',
-      root: 'react' // indicates global variable
+    },
+    'react-dom': {
+      root: 'ReactDOM',
+      commonjs2: 'react-dom',
+      commonjs: 'react-dom',
+      amd: 'react-dom',
     },
   },
   output: {
     filename: '[name].js',
+    libraryTarget: 'umd',
+    library: 'UiKit',
   },
   module: {
     rules: [
@@ -52,10 +60,10 @@ module.exports = {
     // new PeerDepsExternalsPlugin(),
     new CleanWebpackPlugin(),
   ],
-  optimization: {
-    splitChunks: {
-      // include all types of chunks
-      chunks: 'all'
-    },
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     // include all types of chunks
+  //     chunks: 'all'
+  //   },
+  // },
 };

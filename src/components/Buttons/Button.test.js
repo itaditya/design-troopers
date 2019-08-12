@@ -1,15 +1,17 @@
 import React from 'react';
-import {render, fireEvent, cleanup} from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 
 import { Button } from './index.js';
 
 function setup(props = {}, config = {}) {
   const spyButtonClick = jest.fn();
   const { debug, getByRole } = render(
-    <Button onClick={spyButtonClick} {...props}>Sign Up</Button>,
+    <Button onClick={spyButtonClick} {...props}>
+      Sign Up
+    </Button>,
   );
 
-  const triggerClick = (event) => fireEvent.click(getByRole('button'), event);
+  const triggerClick = event => fireEvent.click(getByRole('button'), event);
 
   return { debug, getByRole, triggerClick, spyButtonClick };
 }
