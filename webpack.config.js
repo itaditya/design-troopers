@@ -1,0 +1,61 @@
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
+
+const cssPlugin = new MiniCssExtractPlugin({
+  filename: 'style.[contenthash].css',
+});
+
+module.exports = {
+  externals : {
+    react : {
+      commonjs: 'react',
+      commonjs2: 'react',
+      amd: 'react',
+      root: 'react' // indicates global variable
+    },
+  },
+  output: {
+    filename: '[name].js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.css$/,
+        use:  ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+    ],
+  },
+  plugins: [
+    cssPlugin,
+    // new PeerDepsExternalsPlugin(),
+    new CleanWebpackPlugin(),
+  ],
+  optimization: {
+    splitChunks: {
+      // include all types of chunks
+      chunks: 'all'
+    },
+  },
+};

@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PrimaryButton /> works it renders properly 1`] = `
+<button
+  class="dt-bg-primary-500 dt-text-white hover:dt-bg-primary-600 focus:dt-bg-primary-700 dt-py-2 dt-px-6 dt-rounded dt-shadow-lg dt-border dt-border-gray-300 dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none"
+  data-name="DTPrimaryButton"
+>
+  Sign Up
+</button>
+`;

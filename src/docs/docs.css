@@ -1,0 +1,7 @@
+
+/* To find if undefined className is present in a component by mistake */
+.undefined {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}

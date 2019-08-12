@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> works it renders properly 1`] = `
+<button
+  class="dt-py-2 dt-px-6 dt-rounded dt-shadow-lg dt-border dt-border-gray-300 dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none"
+  data-name="DTButton"
+>
+  Sign Up
+</button>
+`;
