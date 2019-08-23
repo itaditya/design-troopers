@@ -48,7 +48,7 @@ function ExampleComponent() {
   return (
     <div>
       <PrimaryButton onClick={() => rootContext.toastTrigger('example-success-toast')}>Trigger Success Toast</PrimaryButton>
-      <Toast name="example-success-toast" className="dt-bg-primary-500 dt-text-white dt-my-5" closeBtnProps={{ className: 'dt-fill-current dt-text-white' }}>
+      <Toast name="example-success-toast" className="dt-bg-primary dt-text-white dt-my-5" closeBtnProps={{ className: 'dt-fill-current dt-text-white' }}>
         <div>I am a success toast</div>
       </Toast>
 

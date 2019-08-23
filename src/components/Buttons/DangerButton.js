@@ -20,7 +20,7 @@ function DangerButton(props: PropsDangerButton) {
   const variantClassName = variant === 'ghost' ? 'dt-border-error dt-bg-transparent dt-text-error' : 'dt-bg-error dt-text-white';
   const computedClassName = cn(className, variantClassName);
 
-  return <Button data-name={PrimaryButton.displayName} {...otherProps} variant={variant} className={computedClassName} />
+  return <Button data-name={DangerButton.displayName} {...otherProps} variant={variant} className={computedClassName} />
 }
 
 export { DangerButton };
