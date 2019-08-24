@@ -12,6 +12,17 @@ function getColors(colors, name) {
   }
 
   const transformedColors = Object.entries(colors[name]).reduce((acc, [shadeName, color]) => {
+    if (shadeName === 'default') {
+      return acc;
+    };
+
+    if (name !== 'gray' && shadeName === '500') {
+      return {
+        ...acc,
+        [name]: color,
+      }
+    };
+
     return {
       ...acc,
       [`${name}-${shadeName}`]: color,

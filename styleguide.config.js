@@ -28,7 +28,7 @@ module.exports = {
       content: 'src/components/components.md',
       components: ['src/components/**/*.js'],
       ignore: ['src/components/**/index.js'],
-      exampleMode: 'expand',
+      // exampleMode: 'expand',
       usageMode: 'expand',
       sectionDepth: 2,
     },

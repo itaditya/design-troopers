@@ -17,7 +17,7 @@ function Toast(props) {
   if(shouldShowToast) {
     return createPortal(
       (
-        <div className={toastClassName}>
+        <div data-name="DTToast" className={toastClassName}>
           {children}
           <button className={closeBtnClassName} onClick={() => rootContext.toastDismiss(name)}>
             <CrossSvg />

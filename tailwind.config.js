@@ -12,7 +12,9 @@ const config = {
       ...themeColors,
     },
   },
-  variants: {},
+  variants: {
+    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+  },
   plugins: [
     require('tailwindcss-transitions')(),
   ],

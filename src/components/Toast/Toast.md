@@ -2,7 +2,7 @@
 
 Render toast anywhere.
 
-```html
+```jsx static
 <Toast name="example-error-toast">
   <div>I am an error toast</div>
 </Toast>
@@ -18,7 +18,7 @@ rootContext.toastTrigger('example-success-toast')
 
 ### Toast example:
 
-```js noeditor
+```js
 import { InlineCode } from '../../docs/doc_components';
 
 import { useRootContext } from '../../rootContext';
@@ -40,21 +40,21 @@ import { BodyPortal } from '../MotherShip';
 import { Spacer } from '../../docs/doc_components';
 
 import { useRootContext } from '../../rootContext';
-import { PrimaryButton, DangerButton } from '../Buttons';
+import { Button } from '../Buttons';
 
 function ExampleComponent() {
   const rootContext = useRootContext();
 
   return (
     <div>
-      <PrimaryButton onClick={() => rootContext.toastTrigger('example-success-toast')}>Trigger Success Toast</PrimaryButton>
+      <Button appearance="primary" onClick={() => rootContext.toastTrigger('example-success-toast')}>Trigger Success Toast</Button>
       <Toast name="example-success-toast" className="dt-bg-primary dt-text-white dt-my-5" closeBtnProps={{ className: 'dt-fill-current dt-text-white' }}>
         <div>I am a success toast</div>
       </Toast>
 
       <Spacer direction="vertical" />
 
-      <DangerButton onClick={() => rootContext.toastTrigger('example-error-toast')}>Trigger Error Toast</DangerButton>
+      <Button appearance="danger" onClick={() => rootContext.toastTrigger('example-error-toast')}>Trigger Error Toast</Button>
       <Toast name="example-error-toast" className="dt-bg-error dt-text-white dt-my-5" closeBtnProps={{ className: 'dt-fill-current dt-text-white' }}>
         <div>I am an error toast</div>
       </Toast>

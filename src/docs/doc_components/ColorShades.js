@@ -1,7 +1,7 @@
 import React from 'react';
 
 function isLightColor(name) {
-  return ['white', 'gray-100', 'gray-200', 'gray-300', 'gray-400'].includes(name);
+  return ['disabled', 'white', 'gray-100', 'gray-200', 'gray-300', 'gray-400'].includes(name);
 }
 
 function ColorShades({ colors }) {
@@ -15,7 +15,7 @@ function ColorShades({ colors }) {
         const textColorClassName = isLightColor(name) ? 'dt-text-gray-700' : 'dt-text-gray-100';
         const bgColorClassName = `dt-bg-${name}`;
 
-        const className = `${bgColorClassName} dt-text-center dt-w-56 dt-mr-8 dt-mb-8 dt-p-4 ${textColorClassName}`;
+        const className = `${bgColorClassName} dt-text-center dt-w-56 dt-mr-8 dt-mb-8 dt-p-4 dt-rounded-lg ${textColorClassName}`;
 
         return (
           <div className={className} key={name} onClick={() => handleClick(name)}>

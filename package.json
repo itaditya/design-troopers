@@ -1,6 +1,6 @@
 {
   "name": "design-troopers",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "main": "dist/main.js",
   "files": [
     "dist/*"
@@ -14,6 +14,7 @@
     "docs": "styleguidist server",
     "docs:dev": "nodemon --exec 'yarn docs' --ignore src/",
     "docs:build": "styleguidist build",
+    "docs:deploy": "yarn docs:build && surge -p styleguide -d https://design-troopers.surge.sh",
     "build": "webpack --mode production",
     "test": "jest",
     "test:dev": "yarn test --watch",
@@ -22,6 +23,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
@@ -37,7 +40,7 @@
     "jest": "^24.8.0",
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
-    "packagebind": "^0.3.2",
+    "packagebind": "^0.3.3",
     "peer-deps-externals-webpack-plugin": "^1.0.4",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
