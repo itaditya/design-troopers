@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function isLightColor(name) {
   return ['disabled', 'white', 'gray-100', 'gray-200', 'gray-300', 'gray-400'].includes(name);
 }
 
 function ColorShades({ colors }) {
-  async function handleClick(name) {
-    await navigator.clipboard.writeText(name);
+  const [stateCopy, setStateCopy] = useState(false);
+
+  async function handleClick(name, event) {
+    const copyText = event.altKey ? `.dt-${name}` : name;
+    await navigator.clipboard.writeText(copyText);
+    setStateCopy(copyText);
+    setTimeout(() => {
+      setStateCopy(false);
+    }, 400);
   }
 
   return (
@@ -15,12 +22,18 @@ function ColorShades({ colors }) {
         const textColorClassName = isLightColor(name) ? 'dt-text-gray-700' : 'dt-text-gray-100';
         const bgColorClassName = `dt-bg-${name}`;
 
-        const className = `${bgColorClassName} dt-text-center dt-w-56 dt-mr-8 dt-mb-8 dt-p-4 dt-rounded-lg ${textColorClassName}`;
+        const className = `${bgColorClassName} dt-text-center dt-w-56 dt-mr-8 dt-mb-8 dt-p-4 dt-rounded-lg dt-shadow-lg dt-transition-all dt-transition-500 ${textColorClassName}`;
 
         return (
-          <div className={className} key={name} onClick={() => handleClick(name)}>
-            <strong>{name}</strong>
-            <p className="dt-mt-2">{color}</p>
+          <div className={className} key={name}>
+            <strong onClick={(event) => handleClick(name, event)}>
+              {
+                [name, `.dt-${name}`].includes(stateCopy) ? `${stateCopy} copied` : name
+              }
+            </strong>
+            <p className="dt-mt-2 dt-user-select">
+              {color}
+            </p>
           </div>
         );
       })}

@@ -17,6 +17,8 @@ import { InlineCode } from '../docs/doc_components';
 
 ### Colors Chart
 
+Click on the color name to copy the name like `primary-300`. If you click the name while holding `Option` key it will copy the class name like `.dt-primary-300`.
+
 ```js
 import { ColorChart } from '../docs/doc_components';
 const tokens = require('../../tokens.json');

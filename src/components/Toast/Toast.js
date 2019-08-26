@@ -2,8 +2,9 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
 
+import IcClose from 'material-svg-react-icons/dist/IcClose';
+
 import { useRootContext } from '../../rootContext';
-import CrossSvg from '../../icons/ic_close_18px.svg';
 
 function Toast(props) {
   const { name, children, className, closeBtnProps = {}, ...otherProps } = props;
@@ -20,7 +21,7 @@ function Toast(props) {
         <div data-name="DTToast" className={toastClassName}>
           {children}
           <button className={closeBtnClassName} onClick={() => rootContext.toastDismiss(name)}>
-            <CrossSvg />
+            <IcClose />
           </button>
         </div>
       ),

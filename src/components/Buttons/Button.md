@@ -75,7 +75,7 @@ In case you are rendering a list of items and each need a button, you can have t
 ```js
 import { Spacer } from '../../docs/doc_components';
 
-import CrossSvg from '../../icons/ic_close_24px.svg';
+import IcClose from 'material-svg-react-icons/dist/IcClose';
 
 <section>
   <div className="dt-flex dt-items-center">
@@ -86,7 +86,7 @@ import CrossSvg from '../../icons/ic_close_24px.svg';
     <Spacer />
 
     <Button appearance="primary" variant="ghost">
-      Play
+      Submit Form
     </Button>
 
     <Spacer />
@@ -126,7 +126,7 @@ import CrossSvg from '../../icons/ic_close_24px.svg';
     <Spacer />
 
     <Button appearance="danger">
-      <CrossSvg className="dt-fill-current dt-text-white dt-mr-2" />
+      <IcClose className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" />
       Discard Email
     </Button>
 
@@ -145,37 +145,35 @@ import CrossSvg from '../../icons/ic_close_24px.svg';
 
 ```jsx static
 <Button variant="icon">
-  <CrossSvg />
+  <IcClose />
 </Button>
 ```
 
 ```js
 import { Spacer } from '../../docs/doc_components';
 
-import Ic3DRotation from 'material-svg-react-icons/dist/Ic3DRotation';
-
-import CrossSvg from '../../icons/ic_close_24px.svg';
-import SearchSvg from '../../icons/ic_search_24px.svg';
-import SearchLargeSvg from '../../icons/ic_search_48px.svg';
+import IcSearch from 'material-svg-react-icons/dist/IcSearch';
+import IcClose from 'material-svg-react-icons/dist/IcClose';
+import IcExtension from 'material-svg-react-icons/dist/IcExtension';
 
 <section>
   <div>
     <h4>Icon Button</h4>
     <div className="dt-flex dt-items-center">
       <Button variant="icon">
-        <Ic3DRotation />
+        <IcSearch />
       </Button>
 
       <Spacer />
 
       <Button variant="icon">
-        <SearchSvg />
+        <IcExtension />
       </Button>
 
       <Spacer />
 
       <Button variant="icon" size="lg">
-        <SearchLargeSvg />
+        <IcClose />
       </Button>
     </div>
   </div>
@@ -215,6 +213,35 @@ import SearchLargeSvg from '../../icons/ic_search_48px.svg';
         Hide 'Anime' from playlist
       </Button>
     </div>
+  </div>
+</section>
+```
+
+---
+
+### TaskButton
+
+```js
+import { Spacer } from '../../docs/doc_components';
+
+import { TaskButton } from './Button.js';
+
+<section>
+  <h4 className="dt-mb-2">TaskButton can be used when a small task runs</h4>
+  <div className="dt-flex dt-items-center">
+    <TaskButton>Save Code</TaskButton>
+
+    <Spacer/>
+
+    <TaskButton taskState="loading">Saving...</TaskButton>
+
+    <Spacer/>
+
+    <TaskButton taskState="done">Saved</TaskButton>
+
+    <Spacer/>
+
+    <TaskButton appearance="danger" taskState="errored">Error, Try Again</TaskButton>
   </div>
 </section>
 ```

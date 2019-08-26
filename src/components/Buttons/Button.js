@@ -1,13 +1,19 @@
 // @flow
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import cn from 'classnames';
+
+import IcCached from 'material-svg-react-icons/dist/IcCached';
+import IcDone from 'material-svg-react-icons/dist/IcDone';
+import IcError from 'material-svg-react-icons/dist/IcError';
+
+import './button.css';
 
 export type PropsButton = {
   /** what is the appearance */
   appearance?: 'default' | 'primary' | 'secondary' | 'danger' | 'warning',
   /** what is the variant */
-  variant?: 'default' | 'fab' | 'ghost' | 'icon',
+  variant?: 'default' | 'ghost' | 'icon',
   /** what is the size */
   size?: 'default' | 'lg',
   /** what is the className */
@@ -19,17 +25,17 @@ export type PropsButton = {
 function getSizeClassNamesForVariant({ variant, size }) {
   const sizeAndVariantClassMapping = {
     icon: {
-      lg: 'dt-p-3 dt-rounded-full',
-      other: 'dt-p-2 dt-rounded-full',
+      lg: 'dt-text-4xl dt-p-2 dt-rounded-full',
+      default: 'dt-text-2xl dt-p-3 dt-rounded-full',
     },
-    other: {
+    default: {
       lg: 'dt-text-lg dt-py-3 dt-px-8 dt-rounded-lg',
-      other: 'dt-py-2 dt-px-6 dt-rounded',
+      default: 'dt-py-2 dt-px-6 dt-rounded',
     },
   };
 
-  const variantMapping = sizeAndVariantClassMapping[variant] || sizeAndVariantClassMapping.other;
-  const sizeAndVariantClassName = variantMapping[size] || variantMapping.other;
+  const variantMapping = sizeAndVariantClassMapping[variant] || sizeAndVariantClassMapping.default;
+  const sizeAndVariantClassName = variantMapping[size] || variantMapping.default;
 
   return sizeAndVariantClassName;
 }
@@ -50,7 +56,9 @@ function getClassNames({ className, appearance, variant, size, disabled }) {
   }
 
   const iconVariantClassName =
-    variant === 'icon' ? 'dt-text-gray-600 dt-fill-current hover:dt-bg-gray-200 focus:dt-bg-gray-300' : '';
+    variant === 'icon'
+      ? 'dt-text-gray-600 dt-fill-current hover:dt-bg-gray-200 active:dt-bg-gray-400 focus:dt-bg-gray-400'
+      : '';
 
   const sizeAndVariantClassName = getSizeClassNamesForVariant({ variant, size });
 
@@ -63,6 +71,8 @@ function getClassNames({ className, appearance, variant, size, disabled }) {
 
   const disabledClassName = disabled ? 'dt-opacity-50 dt-cursor-not-allowed' : '';
 
+  const primaryBtnClassName = appearance === 'primary' ? 'dt-primary-button' : '';
+
   const classNames = cn(
     className,
     appearanceClassName,
@@ -71,6 +81,7 @@ function getClassNames({ className, appearance, variant, size, disabled }) {
     shadowClassName,
     borderClassName,
     disabledClassName,
+    primaryBtnClassName,
     commonClassName,
   );
 
@@ -92,6 +103,15 @@ function Button(props: PropsButton) {
     disabled,
   };
 
+  useEffect(() => {
+    if (appearance === 'primary') {
+      const noPrimaryBtns = document.querySelectorAll('.dt-primary-button').length;
+      if (noPrimaryBtns > 1) {
+        console.warn('Only one Primary Button should be present on a page for ideal UX.');
+      }
+    }
+  }, [appearance]);
+
   return (
     <button data-name="DTButton" className={btnClassName} {...htmlAttrs} {...otherProps}>
       {children}
@@ -99,4 +119,29 @@ function Button(props: PropsButton) {
   );
 }
 
-export { Button, getClassNames };
+function TaskButton(props) {
+  const { SpinnerIcon, taskState, children, ...otherProps } = props;
+
+  const isLoading = taskState === 'loading';
+  const isDone = taskState === 'done';
+  const isErrored = taskState === 'errored';
+
+  const Spinner = SpinnerIcon || IcCached;
+
+  return (
+    <Button data-name="DTTaskButton" appearance="primary" disabled={isLoading} {...otherProps}>
+      {
+        isLoading ? <Spinner className="dt-button-loading-spinner dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
+      }
+      {
+        isDone ? <IcDone className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
+      }
+      {
+        isErrored ? <IcError className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
+      }
+      {children}
+    </Button>
+  );
+}
+
+export { Button, TaskButton, getClassNames };

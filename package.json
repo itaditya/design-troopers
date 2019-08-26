@@ -10,7 +10,6 @@
     "gen:tokens": "node generateTokens.js > tokens.json",
     "gen:tokens:dev": "nodemon --exec 'yarn gen:tokens' --watch src/tokens",
     "copy:tokens": "cp tokens.json dist/tokens.json",
-    "copy:icons": "cp -r src/icons dist/icons",
     "docs": "styleguidist server",
     "docs:dev": "nodemon --exec 'yarn docs' --ignore src/",
     "docs:build": "styleguidist build",
@@ -19,7 +18,7 @@
     "test": "jest",
     "test:dev": "yarn test --watch",
     "test:debug": "node --inspect-brk $(npm bin)/jest --runInBand --watch",
-    "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens && yarn copy:icons",
+    "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens",
     "postpublish": "yarn docs:deploy"
   },
   "devDependencies": {
