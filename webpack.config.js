@@ -21,6 +21,12 @@ module.exports = {
       amd: 'react-dom',
     },
   },
+  entry: {
+    index: './src/index.js',
+    Buttons: './src/components/Buttons/index.js',
+    Banner: './src/components/Banner/index.js',
+    Toast: './src/components/Toast/index.js',
+  },
   output: {
     filename: '[name].js',
     libraryTarget: 'umd',

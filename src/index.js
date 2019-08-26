@@ -3,6 +3,6 @@
 
 import './styles.css';
 
-import('./components/Buttons');
-import('./components/Banner');
-import('./components/Toast');
+// import('./components/Buttons');
+// import('./components/Banner');
+// import('./components/Toast');
