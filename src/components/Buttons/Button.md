@@ -152,6 +152,8 @@ import CrossSvg from '../../icons/ic_close_24px.svg';
 ```js
 import { Spacer } from '../../docs/doc_components';
 
+import Ic3DRotation from 'material-svg-react-icons/dist/Ic3DRotation';
+
 import CrossSvg from '../../icons/ic_close_24px.svg';
 import SearchSvg from '../../icons/ic_search_24px.svg';
 import SearchLargeSvg from '../../icons/ic_search_48px.svg';
@@ -161,7 +163,7 @@ import SearchLargeSvg from '../../icons/ic_search_48px.svg';
     <h4>Icon Button</h4>
     <div className="dt-flex dt-items-center">
       <Button variant="icon">
-        <CrossSvg />
+        <Ic3DRotation />
       </Button>
 
       <Spacer />

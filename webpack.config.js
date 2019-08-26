@@ -32,15 +32,15 @@ module.exports = {
         test: /\.svg$/,
         use: [
           {
-            loader: "babel-loader"
+            loader: 'babel-loader',
           },
           {
-            loader: "react-svg-loader",
+            loader: 'react-svg-loader',
             options: {
-              jsx: true // true outputs JSX tags
-            }
-          }
-        ]
+              jsx: true, // true outputs JSX tags
+            },
+          },
+        ],
       },
       {
         test: /\.js$/,
@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use:  ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
       },
     ],
   },
@@ -60,10 +60,9 @@ module.exports = {
     // new PeerDepsExternalsPlugin(),
     new CleanWebpackPlugin(),
   ],
-  // optimization: {
-  //   splitChunks: {
-  //     // include all types of chunks
-  //     chunks: 'all'
-  //   },
-  // },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
 };

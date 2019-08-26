@@ -78,11 +78,17 @@ function getClassNames({ className, appearance, variant, size, disabled }) {
 }
 
 function Button(props: PropsButton) {
-  const { appearance = 'default', variant, size, disabled, className, children, ...otherProps } = props;
+  const { appearance = 'default', variant, size, disabled, className, style, children, ...otherProps } = props;
 
   const btnClassName = getClassNames({ className, appearance, variant, size, disabled });
 
+  const btnStyle = {
+    ...style,
+    whiteSpace: 'nowrap',
+  };
+
   const htmlAttrs = {
+    style: btnStyle,
     disabled,
   };
 

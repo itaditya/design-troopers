@@ -3,5 +3,6 @@
 
 import './styles.css';
 
-export * from './components/Buttons';
-export * from './components/Banner';
+import('./components/Buttons');
+import('./components/Banner');
+import('./components/Toast');
