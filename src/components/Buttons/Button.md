@@ -22,7 +22,9 @@ function Example() {
   );
 }
 
-<Example />
+<section id="example-clickable-button">
+  <Example />
+</section>
 ```
 
 ```jsx static
@@ -37,10 +39,10 @@ The Default Button serve as a base for other buttons. Do not use it directly.
 ```js
 import { Spacer } from '../../docs/doc_components';
 
-<section>
+<section id="example-default-buttons">
   <div className="dt-flex dt-items-center dt-mb-2">
     <Button>
-      Click Me
+      Default Button
     </Button>
 
     <Spacer />
@@ -52,7 +54,7 @@ import { Spacer } from '../../docs/doc_components';
     <Spacer />
 
     <Button disabled>
-      Disabled
+      Disabled Button
     </Button>
   </div>
 </section>
