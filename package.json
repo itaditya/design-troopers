@@ -7,8 +7,9 @@
   ],
   "license": "MIT",
   "scripts": {
-    "gen:tokens": "node generateTokens.js > tokens.json",
+    "gen:tokens": "node scripts/generateTokens.js > tokens.json",
     "gen:tokens:dev": "nodemon --exec 'yarn gen:tokens' --watch src/tokens",
+    "gen:iconslist": "node scripts/generateIconsList.js > iconsList.json",
     "copy:tokens": "cp tokens.json dist/tokens.json",
     "docs": "styleguidist server",
     "docs:dev": "nodemon --exec 'yarn docs' --ignore src/",

@@ -28,13 +28,26 @@ module.exports = {
       content: 'src/components/components.md',
       components: ['src/components/**/*.js'],
       ignore: ['src/components/**/index.js'],
-      // exampleMode: 'expand',
       usageMode: 'expand',
       sectionDepth: 2,
     },
     {
       name: 'Design Tokens',
       components: ['src/tokens/**/*.js'],
+    },
+    {
+      name: 'Icons',
+      sections: [
+        {
+          name: 'Usage',
+          content: 'src/icons/usage.md',
+          exampleMode: 'expand',
+        },
+        {
+          name: 'Collection',
+          content: 'src/icons/collection.md',
+        },
+      ],
     },
   ],
   context: {
