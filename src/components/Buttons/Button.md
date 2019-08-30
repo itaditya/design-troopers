@@ -15,7 +15,7 @@ function Example() {
     <div className="dt-my-6">
       <p className="dt-mb-2">{clicks} clicks so far.</p>
 
-      <Button appearance="primary" onClick={incrementClicks}>
+      <Button appearance="secondary" onClick={incrementClicks}>
         Click Me
       </Button>
     </div>
