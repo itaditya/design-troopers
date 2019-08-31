@@ -1,5 +1,11 @@
 ### Basic Usage
 
+```jsx static
+<Button onClick={handleClick} appearance="primary">
+  Click Me
+</Button>
+```
+
 ```js noeditor
 import { useState } from 'react';
 import { Spacer } from '../../docs/doc_components';
@@ -15,22 +21,16 @@ function Example() {
     <div className="dt-my-6">
       <p className="dt-mb-2">{clicks} clicks so far.</p>
 
-      <Button appearance="secondary" onClick={incrementClicks}>
+      <Button appearance="primary" onClick={incrementClicks}>
         Click Me
       </Button>
     </div>
   );
 }
 
-<section id="example-clickable-button">
+<section data-testid="example-clickable-button">
   <Example />
 </section>
-```
-
-```jsx static
-<Button onClick={handleClick} appearance="primary">
-  Click Me
-</Button>
 ```
 
 ### Button base
@@ -39,7 +39,7 @@ The Default Button serve as a base for other buttons. Do not use it directly.
 ```js
 import { Spacer } from '../../docs/doc_components';
 
-<section id="example-default-buttons">
+<section data-testid="example-default-buttons">
   <div className="dt-flex dt-items-center dt-mb-2">
     <Button>
       Default Button

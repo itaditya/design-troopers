@@ -19,7 +19,7 @@
     "test": "jest",
     "test:dev": "yarn test --watch",
     "test:debug": "node --inspect-brk $(npm bin)/jest --runInBand --watch",
-    "cy:open": "cypress open",
+    "cy:open": "cypress open --config ignoreTestFiles='*.visualspec.js'",
     "cy:run": "cypress run --reporter cypress-image-snapshot/reporter",
     "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens",
     "postpublish": "yarn docs:deploy"
