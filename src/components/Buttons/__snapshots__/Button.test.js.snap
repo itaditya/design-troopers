@@ -2,8 +2,9 @@
 
 exports[`<Button /> works it renders properly 1`] = `
 <button
-  class="dt-py-2 dt-px-6 dt-rounded dt-shadow-lg dt-border dt-border-gray-300 dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none focus:dt-shadow-outline"
+  class="dt-py-2 dt-px-6 dt-rounded dt-shadow-lg dt-border dt-border-gray-300 dt-border-default disabled:dt-opacity-50 disabled:dt-cursor-not-allowed dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none focus:dt-shadow-outline"
   data-name="DTButton"
+  style="white-space: nowrap;"
 >
   Sign Up
 </button>

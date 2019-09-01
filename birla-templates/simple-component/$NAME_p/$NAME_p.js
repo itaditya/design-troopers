@@ -1,11 +1,10 @@
 import React from 'react';
+import cn from 'classnames';
 
 function $NAME_p(props) {
   return (
-    <div {...props}></div>
+    <div data-name="DT$NAME_p" {...props}></div>
   );
 }
-
-$NAME_p.displayName = 'DT$NAME_p';
 
 export { $NAME_p };

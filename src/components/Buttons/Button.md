@@ -79,7 +79,7 @@ import { Spacer } from '../../docs/doc_components';
 
 import IcClose from 'material-svg-react-icons/dist/IcClose';
 
-<section>
+<section data-testid="example-semantic-buttons">
   <div className="dt-flex dt-items-center">
     <Button appearance="primary">
       Sign Up
@@ -152,38 +152,73 @@ import IcClose from 'material-svg-react-icons/dist/IcClose';
 ```
 
 ```js
+import { useState } from 'react';
+import cn from 'classnames';
+
 import { Spacer } from '../../docs/doc_components';
 
 import IcSearch from 'material-svg-react-icons/dist/IcSearch';
 import IcClose from 'material-svg-react-icons/dist/IcClose';
-import IcExtension from 'material-svg-react-icons/dist/IcExtension';
+import IcFavorite from 'material-svg-react-icons/dist/IcFavorite';
+import IcFavoriteBorder from 'material-svg-react-icons/dist/IcFavoriteBorder';
+
+
+function ExampleBookmarkButton() {
+  const [stateDone, setStateDone] = useState(false);
+
+  function handleClick() {
+    setTimeout(() => {
+      setStateDone(!stateDone);
+    }, 600);
+  }
+
+  const Element = stateDone ? IcFavorite : IcFavoriteBorder;
+  const title = stateDone ? 'Added to Favorites' : 'Add to Favorites';
+
+  const classNameIcon = cn({ 'dt-text-primary': stateDone });
+
+  return (
+    <Button
+      variant="icon"
+      title={title}
+      aria-label={title}
+      onClick={handleClick}
+    >
+      <Element className={classNameIcon} />
+    </Button>
+  );
+}
 
 <section>
-  <div>
-    <h4>Icon Button</h4>
-    <div className="dt-flex dt-items-center">
-      <Button variant="icon">
-        <IcSearch />
-      </Button>
+  <div data-testid="example-icon-buttons">
+    <h4 className="dt-text-xl dt-mb-2">Icon Button</h4>
+    <div>
+      <h5>Icon Button with size normal and large</h5>
+      <div className="dt-flex dt-items-center">
+        <Button variant="icon" aria-label="Search">
+          <IcSearch />
+        </Button>
 
-      <Spacer />
+        <Spacer />
 
-      <Button variant="icon">
-        <IcExtension />
-      </Button>
+        <Button variant="icon" size="lg">
+          <IcClose />
+        </Button>
+      </div>
+    </div>
 
-      <Spacer />
-
-      <Button variant="icon" size="lg">
-        <IcClose />
-      </Button>
+    <div>
+      <h5>Icon Button are often time replaced with their filled variant when the attached task is done.</h5>
+      <div className="dt-flex dt-items-center">
+        <ExampleBookmarkButton />
+      </div>
     </div>
   </div>
 
   <Spacer />
 
-  <div>
-    <h4 className="dt-mb-2">Ghost Button</h4>
+  <div data-testid="example-ghost-buttons">
+    <h4 className="dt-text-xl dt-mb-2">Ghost Button</h4>
     <div className="dt-flex dt-items-center">
       <Button variant="ghost" appearance="primary">
         Start Challenge
@@ -222,28 +257,94 @@ import IcExtension from 'material-svg-react-icons/dist/IcExtension';
 ---
 
 ### TaskButton
+It should be used when a small task runs
 
 ```js
+import { useState } from 'react';
+
 import { Spacer } from '../../docs/doc_components';
 
 import { TaskButton } from './Button.js';
 
+function action(shouldFail) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if(shouldFail) {
+        reject();
+        return;
+      }
+      resolve();
+    }, 400);
+  });
+}
+
+function ExampleTaskButtonComp({ shouldFail, ...otherProps }) {
+  const initialState = null;
+  const [stateTask, setStateTask] = useState(initialState);
+
+  async function handleClick() {
+    setStateTask('loading');
+    action(shouldFail)
+      .then(() => {
+        setStateTask('done');
+      })
+      .catch(() => {
+        setStateTask('errored');
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setStateTask(initialState);
+        }, 1500);
+      });
+  }
+
+  const textMap = {
+    loading: 'Saving',
+    done: 'Saved',
+    errored: 'Error, Try Again!'
+  }
+
+  return (
+    <TaskButton
+      taskState={stateTask}
+      onClick={handleClick}
+      {...otherProps}
+    >
+      {textMap[stateTask] || 'Save Code'}
+    </TaskButton>
+  );
+}
+
 <section>
-  <h4 className="dt-mb-2">TaskButton can be used when a small task runs</h4>
-  <div className="dt-flex dt-items-center">
-    <TaskButton>Save Code</TaskButton>
+  <div className="dt-mb-4">
+    <h4 className="dt-mb-2">The state of TaskButton can be controlled via props</h4>
+    <div className="dt-flex dt-items-center">
+      <TaskButton>Save Code</TaskButton>
 
-    <Spacer/>
+      <Spacer/>
 
-    <TaskButton taskState="loading">Saving...</TaskButton>
+      <TaskButton taskState="loading">Saving...</TaskButton>
 
-    <Spacer/>
+      <Spacer/>
 
-    <TaskButton taskState="done">Saved</TaskButton>
+      <TaskButton taskState="done">Saved</TaskButton>
 
-    <Spacer/>
+      <Spacer/>
 
-    <TaskButton appearance="danger" taskState="errored">Error, Try Again</TaskButton>
+      <TaskButton appearance="danger" taskState="errored">Error, Try Again</TaskButton>
+    </div>
+  </div>
+  <div className="dt-mb-4">
+    <h4 className="dt-mb-2">A custom component in which the action on click succeeds in some time.</h4>
+    <ExampleTaskButtonComp shouldFail={false} />
+  </div>
+  <div className="dt-mb-4">
+    <h4 className="dt-mb-2">A custom component in which the action on click fails in some time.</h4>
+    <ExampleTaskButtonComp shouldFail={true} />
+  </div>
+  <div className="dt-mb-4">
+    <h4 className="dt-mb-2">If you don't want to show the danger button on error you can pass the appearance prop.</h4>
+    <ExampleTaskButtonComp appearance="primary" shouldFail={true} />
   </div>
 </section>
 ```

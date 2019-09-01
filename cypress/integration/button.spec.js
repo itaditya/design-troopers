@@ -1,9 +1,11 @@
 describe('Test <Button /> component', function() {
   const pageUrl = 'UI Components/Button';
 
-  it('triggers the onClick callback when user clicks', function() {
+  before(() => {
     cy.visit(pageUrl);
+  });
 
+  it('triggers the onClick callback when user clicks', function() {
     cy.get(`[data-testid="example-clickable-button"]`).within(() => {
       cy.get('p').should('contain', '0 clicks so far');
       cy.contains('Click Me').click();

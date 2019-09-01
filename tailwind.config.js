@@ -13,7 +13,10 @@ const config = {
     },
   },
   variants: {
+    textColor: ['responsive', 'hover', 'focus', 'active'],
     backgroundColor: ['responsive', 'hover', 'focus', 'active'],
+    opacity: ['disabled'],
+    cursor: ['disabled'],
   },
   plugins: [
     require('tailwindcss-transitions')(),
