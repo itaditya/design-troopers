@@ -1,2 +1,2 @@
 import './docs.css';
-import '../styles.css';
+import '../style.css';

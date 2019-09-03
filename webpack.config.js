@@ -1,9 +1,10 @@
+const path = require('path');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PeerDepsExternalsPlugin = require('peer-deps-externals-webpack-plugin');
 
 const cssPlugin = new MiniCssExtractPlugin({
-  filename: 'style.css',
+  filename: 'styles/style.css',
 });
 
 module.exports = {
@@ -21,15 +22,10 @@ module.exports = {
       amd: 'react-dom',
     },
   },
-  entry: {
-    index: './src/index.js',
-    Buttons: './src/components/Buttons/index.js',
-    Banner: './src/components/Banner/index.js',
-    Toast: './src/components/Toast/index.js',
-  },
   output: {
-    filename: '[name].js',
-    libraryTarget: 'umd',
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist', 'lib'),
+    libraryTarget: 'commonjs-module',
     library: 'DesignTroopers',
   },
   module: {
@@ -63,7 +59,6 @@ module.exports = {
   },
   plugins: [
     cssPlugin,
-    // new PeerDepsExternalsPlugin(),
     new CleanWebpackPlugin(),
   ],
   optimization: {

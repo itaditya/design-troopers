@@ -1,7 +1,12 @@
 {
-  "presets": ["@babel/env", "@babel/react", "@babel/flow"],
-  "plugins": [
-    "@babel/plugin-proposal-export-default-from",
-    "@babel/plugin-proposal-export-namespace-from"
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": false
+      }
+    ],
+    "@babel/react",
+    "@babel/flow"
   ]
 }

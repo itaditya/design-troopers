@@ -1,6 +1,6 @@
 {
   "name": "design-troopers",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
   "files": [
@@ -27,7 +27,9 @@
     "test:debug": "node --inspect-brk $(npm bin)/jest --runInBand --watch",
     "cy:open": "cypress open --config ignoreTestFiles='*.visualspec.js'",
     "cy:openvisual": "cypress open --config ignoreTestFiles='*.spec.js'",
-    "cy:run": "cypress run --reporter cypress-image-snapshot/reporter"
+    "cy:run": "cypress run --reporter cypress-image-snapshot/reporter",
+    "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens",
+    "postpublish": "yarn docs:deploy"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -52,7 +54,6 @@
     "lodash": "^4.17.15",
     "mini-css-extract-plugin": "^0.8.0",
     "packagebind": "^0.3.3",
-    "peer-deps-externals-webpack-plugin": "^1.0.4",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",

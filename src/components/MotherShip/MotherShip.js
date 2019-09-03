@@ -1,9 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import { createPortal } from 'react-dom';
 
-import { RootContextProvider } from '../rootContext';
+import { RootContextProvider } from '../../rootContext';
 
 const BodyPortal = () => <div id="dt-portal" className="dt-relative"></div>;
+
+BodyPortal.displayName = 'DTBodyPortal';
+
 
 function MotherShip({ children }) {
   const [toastMap, setToast] = useState({});
@@ -36,5 +38,7 @@ function MotherShip({ children }) {
     </Fragment>
   );
 }
+
+MotherShip.displayName = 'DTMotherShip';
 
 export { MotherShip, BodyPortal };

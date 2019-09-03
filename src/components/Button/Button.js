@@ -146,4 +146,6 @@ function TaskButton(props) {
   );
 }
 
+Button.displayName = 'DTButton';
+
 export { Button, TaskButton, getClassNames };

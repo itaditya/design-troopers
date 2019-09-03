@@ -1,5 +1,5 @@
-import { Banner } from './Banner.js';
+// import { Banner } from './Banner.js';
 
-Banner.displayName = 'DTBanner';
+// export { Banner };
 
-export { Banner };
+export * from './Banner.js';

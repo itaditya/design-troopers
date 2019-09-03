@@ -26,8 +26,7 @@ module.exports = {
     {
       name: 'UI Components',
       content: 'src/components/components.md',
-      components: ['src/components/**/*.js'],
-      ignore: ['src/components/**/index.js'],
+      components: ['src/components/**/index.js', 'src/components/*.js'],
       usageMode: 'expand',
       sectionDepth: 2,
     },

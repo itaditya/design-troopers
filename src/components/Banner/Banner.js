@@ -22,4 +22,6 @@ Banner.propTypes = {
   name: PropTypes.string.isRequired,
 };
 
+Banner.displayName = 'DTBanner';
+
 export { Banner };

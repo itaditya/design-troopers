@@ -1,7 +1,7 @@
 ### Banner example:
 
 ```js
-import { Button } from '../Buttons';
+import { Button } from '../Button';
 
 <section>
   <p>Normal Banner</p>

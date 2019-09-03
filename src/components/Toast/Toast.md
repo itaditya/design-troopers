@@ -40,7 +40,7 @@ import { BodyPortal } from '../MotherShip';
 import { Spacer } from '../../docs/doc_components';
 
 import { useRootContext } from '../../rootContext';
-import { Button } from '../Buttons';
+import { Button } from '../Button';
 
 function ExampleComponent() {
   const rootContext = useRootContext();
