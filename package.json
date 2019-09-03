@@ -1,9 +1,12 @@
 {
   "name": "design-troopers",
-  "version": "1.4.0",
-  "main": "dist/main.js",
+  "version": "1.6.0",
+  "main": "dist/index.js",
   "files": [
     "dist/*"
+  ],
+  "sideEffects": [
+    "*.css"
   ],
   "license": "MIT",
   "scripts": {
@@ -21,9 +24,7 @@
     "test:debug": "node --inspect-brk $(npm bin)/jest --runInBand --watch",
     "cy:open": "cypress open --config ignoreTestFiles='*.visualspec.js'",
     "cy:openvisual": "cypress open --config ignoreTestFiles='*.spec.js'",
-    "cy:run": "cypress run --reporter cypress-image-snapshot/reporter",
-    "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens",
-    "postpublish": "yarn docs:deploy"
+    "cy:run": "cypress run --reporter cypress-image-snapshot/reporter"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
