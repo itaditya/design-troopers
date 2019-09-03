@@ -1,6 +1,6 @@
 {
   "name": "design-troopers",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/index.js",
   "files": [
     "dist/*"
@@ -27,6 +27,7 @@
     "cy:run": "cypress run --reporter cypress-image-snapshot/reporter"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-proposal-export-default-from": "^7.5.2",
     "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
