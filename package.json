@@ -1,7 +1,8 @@
 {
   "name": "design-troopers",
-  "version": "1.7.0",
-  "main": "dist/index.js",
+  "version": "1.8.0",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "files": [
     "dist/*"
   ],
