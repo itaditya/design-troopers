@@ -1,10 +1,10 @@
 {
   "name": "design-troopers",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "main": "lib/index.js",
   "module": "lib/index.js",
   "files": [
-    "dist/*"
+    "lib/*"
   ],
   "sideEffects": [
     "*.css"
