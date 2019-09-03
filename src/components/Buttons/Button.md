@@ -201,7 +201,7 @@ function ExampleBookmarkButton() {
 
         <Spacer />
 
-        <Button variant="icon" size="lg">
+        <Button variant="icon" size="lg" aria-label="Close">
           <IcClose />
         </Button>
       </div>
@@ -250,6 +250,40 @@ function ExampleBookmarkButton() {
         Hide 'Anime' from playlist
       </Button>
     </div>
+  </div>
+</section>
+```
+---
+
+### Button as a link
+
+```jsx static
+<a href="/login" aria-label="Login">
+  <Button appearance="primary" aria-hidden="true">
+    Login
+  </Button>
+</a>
+```
+
+```js
+import { Spacer } from '../../docs/doc_components';
+
+<section data-testid="example-link-buttons">
+  <div className="dt-flex dt-items-center">
+    <a href="/login" aria-label="Login">
+      <Button appearance="primary" aria-hidden="true">
+        Login
+      </Button>
+    </a>
+
+    <Spacer />
+
+    <a href="/signup" aria-label="Sign Up">
+      <Button variant="ghost" appearance="primary" aria-hidden="true">
+        Sign Up
+      </Button>
+    </a>
+
   </div>
 </section>
 ```

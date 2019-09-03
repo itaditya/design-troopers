@@ -44,12 +44,12 @@ function getClassNames({ className, appearance, variant, size }) {
   const commonClassName =
     'dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none focus:dt-shadow-outline';
 
-  let borderClassName = variant === 'icon' ? '' : `dt-border dt-border-gray-300 dt-border-${appearance}`;
+  let borderClassName = variant === 'ghost' ? `dt-border dt-border-gray-300 dt-border-${appearance}` : '';
 
   let appearanceClassName =
     variant === 'ghost'
       ? `dt-bg-transparent dt-text-${appearance} hover:dt-bg-${appearance}-600 hover:dt-text-white active:dt-bg-${appearance}-700 active:dt-text-white focus:dt-bg-${appearance}-700 focus:dt-text-white`
-      : `dt-bg-${appearance} dt-text-white hover:dt-bg-${appearance}-600 active:dt-bg-${appearance}-700 focus:dt-bg-${appearance}-700`;
+      : `dt-bg-${appearance} dt-text-lg dt-text-white hover:dt-bg-${appearance}-600 active:dt-bg-${appearance}-700 focus:dt-bg-${appearance}-700`;
 
   if (appearance === 'default') {
     appearanceClassName = '';
