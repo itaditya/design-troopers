@@ -1,10 +1,10 @@
 {
   "name": "design-troopers",
-  "version": "1.9.0",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "version": "1.9.0-trials-2",
+  "main": "dist/es/index.js",
+  "module": "dist/es/index.js",
   "files": [
-    "lib/*"
+    "dist/*"
   ],
   "sideEffects": [
     "*.css"
@@ -19,7 +19,9 @@
     "docs:dev": "nodemon --exec 'yarn docs' --watch styleguide.config.js --watch package.json",
     "docs:build": "styleguidist build",
     "docs:deploy": "yarn docs:build && surge -p styleguide -d https://design-troopers.surge.sh",
-    "build": "webpack --mode production",
+    "build:lib": "webpack --mode production",
+    "build:babel": "babel src -d dist/esm --ignore 'src/docs','src/**/*.test.js'",
+    "build:es": "rollup -c",
     "test": "jest",
     "test:dev": "yarn test --watch",
     "test:debug": "node --inspect-brk $(npm bin)/jest --runInBand --watch",
@@ -61,6 +63,12 @@
     "react-dom": "^16.9.0",
     "react-styleguidist": "^9.1.14",
     "react-svg-loader": "^3.0.3",
+    "rollup": "^1.20.3",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",
