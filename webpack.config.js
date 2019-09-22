@@ -66,4 +66,7 @@ module.exports = {
       chunks: 'all',
     },
   },
+  node: {
+    fs: "empty"
+ },
 };

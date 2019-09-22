@@ -1,5 +1,3 @@
-const { colors } = require('tailwindcss/defaultTheme');
-
 const defaultShade = '500';
 
 const primaryColors = {
@@ -41,7 +39,6 @@ const themeColors = {
   error: errorColors,
   warning: warningColors,
   link: linkColors,
-  disabled: colors.gray['300'],
 };
 
 module.exports = themeColors;

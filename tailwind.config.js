@@ -1,16 +1,11 @@
-const { colors } = require('tailwindcss/defaultTheme');
-
-const themeColors = require('./src/tokens/colors.js');
+const colorsCustom = require('./src/tokens/colorsCustom.js');
 
 const config = {
   prefix: 'dt-',
   theme: {
-    colors: {
-      black: colors.black,
-      white: colors.white,
-      gray: colors.gray,
-      ...themeColors,
-    },
+    extend: {
+      colors: colorsCustom,
+    }
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'active'],

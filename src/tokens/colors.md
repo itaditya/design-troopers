@@ -21,7 +21,7 @@ Click on the color name to copy the name like `primary-300`. If you click the na
 
 ```js
 import { ColorChart } from '../docs/doc_components';
-const tokens = require('../../tokens.json');
+const tokens = require('./tokens.js');
 
 const { colors } = tokens;
 

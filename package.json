@@ -1,6 +1,6 @@
 {
   "name": "design-troopers",
-  "version": "2.1.0",
+  "version": "2.1.4",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
   "files": [
@@ -11,8 +11,8 @@
   ],
   "license": "MIT",
   "scripts": {
-    "gen:tokens": "node scripts/generateTokens.js > tokens.json",
-    "gen:tokens:dev": "nodemon --exec 'yarn gen:tokens' --watch src/tokens",
+    "gen:tokens": "node scripts/generateTokens.js > src/tokens/tokens.json",
+    "gen:tokens:dev": "nodemon --exec 'yarn gen:tokens' --watch src/tokens --ignore src/tokens/tokens.json",
     "gen:iconslist": "node scripts/generateIconsList.js > iconsList.json",
     "copy:tokens": "cp tokens.json dist/tokens.json",
     "docs": "styleguidist server",
@@ -66,6 +66,7 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",

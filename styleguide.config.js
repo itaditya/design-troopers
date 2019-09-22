@@ -32,7 +32,12 @@ module.exports = {
     },
     {
       name: 'Design Tokens',
-      components: ['src/tokens/**/*.js'],
+      sections: [
+        {
+          name: 'Colors',
+          content: 'src/tokens/colors.md',
+        },
+      ],
     },
     {
       name: 'Icons',
