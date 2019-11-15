@@ -8,4 +8,11 @@ describe('Test <Button /> components', function() {
   it('all buttons renders properly', function() {
     cy.percySnapshot();
   });
+
+  it('favorite icon button gets filled on click', function() {
+    cy.get(`[data-testid="example-icon-buttons"]`).within(() => {
+      cy.get(`[title="Add to Favorites"]`).click();
+      cy.get(`[title="Added to Favorites"]`).percySnapshot();
+    });
+  });
 })
