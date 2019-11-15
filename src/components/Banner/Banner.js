@@ -5,9 +5,9 @@ import cn from 'classnames';
 function Banner(props) {
   const { className, actionBtn, children, ...otherProps } = props;
 
-  const classNames = cn(className, 'dt-flex dt-items-center dt-py-6 dt-px-4 dt-rounded');
+  const bannerClassNames = cn(className, 'dt-flex dt-items-center dt-py-6 dt-px-4 dt-rounded');
   return (
-    <article data-name="DTBanner" className={classNames} {...otherProps}>
+    <article data-name="DTBanner" className={bannerClassNames} {...otherProps}>
       <div>
         {children}
       </div>
