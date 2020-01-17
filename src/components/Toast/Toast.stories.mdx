@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Preview, Props } from '@storybook/addon-docs/blocks';
 
 import { MotherShip, BodyPortal } from '../MotherShip';
 import { ExampleComponent } from './toastExamples.js';
@@ -8,23 +8,10 @@ import { Toast } from './Toast.js';
 
 # Toast
 
-hello
+<Props of={Toast} />
 
 <Preview>
   <Story name="toast">
-    <div>
-      <MotherShip>
-        <BodyPortal />
-        <ExampleComponent />
-      </MotherShip>
-    </div>
-  </Story>
-</Preview>
-
-### Type 2
-
-<Preview>
-  <Story name="soemthing">
     <div>
       <MotherShip>
         <BodyPortal />
