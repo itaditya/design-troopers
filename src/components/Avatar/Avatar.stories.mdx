@@ -1,0 +1,18 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Avatar } from './Avatar.js';
+
+<Meta title="Components/Avatar" component={Avatar} />
+
+# Avatar
+
+hello
+
+<Preview>
+  <Story name="all checkboxes">
+    <form>
+      <Avatar avatarUrl="https://images.unsplash.com/photo-1563170423-18f482d82cc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&crop=faces&w=200&q=80" />
+      <Avatar id="Checked" label="Checked" checked />
+      <Avatar appearance="secondary" id="second" label="Secondary" checked />
+    </form>
+  </Story>
+</Preview>

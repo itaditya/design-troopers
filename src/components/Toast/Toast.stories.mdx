@@ -1,0 +1,35 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import { MotherShip, BodyPortal } from '../MotherShip';
+import { ExampleComponent } from './toastExamples.js';
+import { Toast } from './Toast.js';
+
+<Meta title="Components/Toast" component={Toast} />
+
+# Toast
+
+hello
+
+<Preview>
+  <Story name="toast">
+    <div>
+      <MotherShip>
+        <BodyPortal />
+        <ExampleComponent />
+      </MotherShip>
+    </div>
+  </Story>
+</Preview>
+
+### Type 2
+
+<Preview>
+  <Story name="soemthing">
+    <div>
+      <MotherShip>
+        <BodyPortal />
+        <ExampleComponent />
+      </MotherShip>
+    </div>
+  </Story>
+</Preview>

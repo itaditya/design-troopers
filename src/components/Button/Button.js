@@ -44,7 +44,7 @@ function getClassNames({ className, appearance, variant, size }) {
   const commonClassName =
     'dt-flex dt-items-center dt-justify-center dt-transition-all dt-transition-500 focus:dt-outline-none focus:dt-shadow-outline';
 
-  let borderClassName = variant === 'ghost' ? `dt-border dt-border-gray-300 dt-border-${appearance}` : '';
+  let borderClassName = variant === 'ghost' ? `dt-border dt-border-gray-300 ` : '';
 
   let appearanceClassName =
     variant === 'ghost'
@@ -88,8 +88,12 @@ function getClassNames({ className, appearance, variant, size }) {
   return classNames;
 }
 
+/**
+ * Use Button for UI where user needs to click or touch.
+ */
+
 function Button(props: PropsButton) {
-  const { appearance = 'default', variant, size= 'md', disabled, className, style, children, ...otherProps } = props;
+  const { appearance = 'default', variant, size = 'md', disabled, className, style, children, ...otherProps } = props;
 
   const btnClassName = getClassNames({ className, appearance, variant, size });
 
@@ -119,8 +123,14 @@ function Button(props: PropsButton) {
   );
 }
 
-function TaskButton(props) {
-  const { SpinnerIcon, taskState, children, ...otherProps } = props;
+export type PropsTaskButton = {
+  ...PropsButton,
+  /** what is the current state of task */
+  taskState?: 'idle' | 'loading' | 'done' | 'errored',
+};
+
+function TaskButton(props: PropsTaskButton) {
+  const { SpinnerIcon, taskState, children, appearance, ...otherProps } = props;
 
   const isLoading = taskState === 'loading';
   const isDone = taskState === 'done';
@@ -128,24 +138,30 @@ function TaskButton(props) {
 
   const Spinner = SpinnerIcon || IcCached;
 
-  const appearance = isErrored ? 'danger' : 'primary';
+  const appearanceComputed = isErrored ? 'danger' : 'primary';
+  const appearanceFinal = appearance || appearanceComputed;
+
+  console.log('appearanceFinal', appearanceFinal);
 
   return (
-    <Button data-name="DTTaskButton" appearance={appearance} disabled={isLoading} {...otherProps}>
-      {
-        isLoading ? <Spinner className="dt-button-loading-spinner dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
-      }
-      {
-        isDone ? <IcDone className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
-      }
-      {
-        isErrored ? <IcError className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''
-      }
+    <Button data-name="DTTaskButton" appearance={appearanceFinal} disabled={isLoading} {...otherProps}>
+      {isLoading ? (
+        <Spinner className="dt-button-loading-spinner dt-fill-current dt-text-white dt-text-2xl dt-mr-2" />
+      ) : (
+        ''
+      )}
+      {isDone ? <IcDone className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''}
+      {isErrored ? <IcError className="dt-fill-current dt-text-white dt-text-2xl dt-mr-2" /> : ''}
       {children}
     </Button>
   );
 }
 
+TaskButton.defaultProps = {
+  taskState: 'idle',
+};
+
+TaskButton.displayName = 'DTTaskButton';
 Button.displayName = 'DTButton';
 
 export { Button, TaskButton, getClassNames };
