@@ -1,12 +1,15 @@
+// @flow
+
 import React from 'react';
 import { createPortal } from 'react-dom';
 import cn from 'classnames';
+import PropTypes from 'prop-types';
 
 import IcClose from 'material-svg-react-icons/dist/IcClose';
 
 import { useRootContext } from '../../rootContext';
 
-function Toast(props) {
+export function Toast(props) {
   const { name, children, className, closeBtnProps = {}, ...otherProps } = props;
   const rootContext = useRootContext();
 
@@ -32,6 +35,8 @@ function Toast(props) {
   return null;
 }
 
-Toast.displayName = 'DTToast';
+Toast.propTypes = {
+  name: PropTypes.string
+};
 
-export { Toast };
+Toast.displayName = 'DTToast';

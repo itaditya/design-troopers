@@ -10,7 +10,9 @@ export default {
   title: 'Components/Button',
   component: Button,
   subcomponents: { TaskButton },
-  parameters: { notes: buttonDoc },
+  parameters: {
+    notes: buttonDoc
+  },
 };
 
 export const PrimaryButtonExample = () => (
