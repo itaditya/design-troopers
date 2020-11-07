@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { isObject } from 'lodash';
 
 
 import { ColorShades } from './ColorShades';
 
 function getColors(colors, name) {
   const x = colors[name];
-  if(!_.isObject(x)) {
+  if(!isObject(x)) {
     return {
       [name]: x,
     }
@@ -14,13 +15,6 @@ function getColors(colors, name) {
   const transformedColors = Object.entries(colors[name]).reduce((acc, [shadeName, color]) => {
     if (shadeName === 'default') {
       return acc;
-    };
-
-    if (name !== 'gray' && shadeName === '500') {
-      return {
-        ...acc,
-        [name]: color,
-      }
     };
 
     return {
@@ -39,10 +33,10 @@ function ColorChart({ colors }) {
         const shades = getColors(colors, name);
 
         return (
-          <Fragment>
+          <section key={name} className="dt-mb-12">
             <h4 className="dt-text-lg"><span className="dt-capitalize">{name}</span> color shades</h4>
             <ColorShades colors={shades} />
-          </Fragment>
+          </section>
         );
       })}
     </div>

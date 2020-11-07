@@ -43,14 +43,11 @@
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@percy/cypress": "^2.1.1",
-    "@storybook/addon-actions": "^5.3.6",
-    "@storybook/addon-backgrounds": "^5.3.6",
-    "@storybook/addon-docs": "^5.3.6",
-    "@storybook/addon-knobs": "^5.3.6",
-    "@storybook/addon-links": "^5.3.6",
-    "@storybook/addon-notes": "^5.3.6",
-    "@storybook/addons": "^5.3.6",
-    "@storybook/react": "^5.3.6",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/addon-notes": "^5.3.21",
+    "@storybook/addons": "^6.0.28",
+    "@storybook/react": "^6.0.28",
     "@testing-library/react": "^9.1.0",
     "autoprefixer": "^9.6.1",
     "axe-core": "^3.3.2",
@@ -86,7 +83,6 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",
-    "storybook-addon-smart-knobs": "^6.0.1",
     "storybook-chromatic": "^3.5.2",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.1",
@@ -100,7 +96,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "material-svg-react-icons": "3",
-    "tailwindcss": "^1.1.0",
+    "tailwindcss": "^1.9.0",
     "tailwindcss-transitions": "^2.0.1"
   }
 }

@@ -20,6 +20,7 @@ export type PropsButton = {
   className?: string,
   /** what to render inside button */
   children?: any,
+  onClick?: Function,
 };
 
 function getSizeClassNamesForVariant({ variant, size }) {
@@ -93,7 +94,7 @@ function getClassNames({ className, appearance, variant, size }) {
  */
 
 function Button(props: PropsButton) {
-  const { appearance = 'default', variant, size = 'md', disabled, className, style, children, ...otherProps } = props;
+  const { appearance, variant, size = 'md', disabled, className, style, children, ...otherProps } = props;
 
   const btnClassName = getClassNames({ className, appearance, variant, size });
 
@@ -123,6 +124,13 @@ function Button(props: PropsButton) {
   );
 }
 
+Button.defaultProps = {
+  appearance: 'default',
+  variant: 'default',
+  size: 'md',
+};
+Button.displayName = 'DTButton';
+
 export type PropsTaskButton = {
   ...PropsButton,
   /** what is the current state of task */
@@ -140,8 +148,6 @@ function TaskButton(props: PropsTaskButton) {
 
   const appearanceComputed = isErrored ? 'danger' : 'primary';
   const appearanceFinal = appearance || appearanceComputed;
-
-  console.log('appearanceFinal', appearanceFinal);
 
   return (
     <Button data-name="DTTaskButton" appearance={appearanceFinal} disabled={isLoading} {...otherProps}>
@@ -162,6 +168,5 @@ TaskButton.defaultProps = {
 };
 
 TaskButton.displayName = 'DTTaskButton';
-Button.displayName = 'DTButton';
 
 export { Button, TaskButton, getClassNames };
