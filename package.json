@@ -33,7 +33,8 @@
     "prepublishOnly": "yarn build && yarn gen:tokens && yarn copy:tokens",
     "postpublish": "yarn docs:deploy",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "chromatic"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -86,6 +87,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.1",
     "storybook-addon-smart-knobs": "^6.0.1",
+    "storybook-chromatic": "^3.5.2",
     "style-loader": "^1.0.0",
     "webpack": "^4.39.1",
     "webpack-cli": "^3.3.6",

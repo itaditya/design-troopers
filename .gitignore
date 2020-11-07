@@ -1,5 +1,6 @@
 dist
 styleguide
+storybook-static
 cypress/integration/examples
 
 node_modules
