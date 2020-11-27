@@ -27,7 +27,9 @@ const list = [
     stories: [
       {
         name: 'width',
-        component: ({ tokens }) => <Sizes title="Width" sizes={tokens} property="w" children="Children" />,
+        component: ({ tokens }) => (
+          <Sizes title="Width" sizes={tokens} property="w" children="Children" />
+        ),
       },
       {
         name: 'padding',
@@ -35,7 +37,9 @@ const list = [
       },
       {
         name: 'margin',
-        component: ({ tokens }) => <Sizes title="Margin" sizes={tokens} property="ml" className="dt-w-8" />,
+        component: ({ tokens }) => (
+          <Sizes title="Margin" sizes={tokens} property="ml" className="dt-w-8" />
+        ),
       },
     ],
   },
@@ -51,9 +55,7 @@ const list = [
 ];
 
 function BgColorComponent({ tokens }) {
-  return (
-    <ColorChart colors={tokens} />
-  );
+  return <ColorChart colors={tokens} />;
 }
 
 function BorderRadius({ tokens }) {
@@ -62,8 +64,7 @@ function BorderRadius({ tokens }) {
       <h3 className="dt-text-3xl dt-mb-6">Borders</h3>
       <div className="dt-flex dt-space-x-12">
         {Object.entries(tokens).map(([name, size]) => (
-          <div className={cn('dt-bg-gray-400 dt-w-16 dt-h-16', `dt-rounded-${name}`)}>
-          </div>
+          <div className={cn('dt-bg-gray-400 dt-w-16 dt-h-16', `dt-rounded-${name}`)}></div>
         ))}
       </div>
     </div>
@@ -76,6 +77,10 @@ function Banner({ name }) {
 
 list.forEach((item) => {
   const parent = storiesOf(`Tokens/${item.group}`, module);
+  parent.addParameters({
+    docs: { disable: true },
+  });
+
   item.stories.forEach((story) => {
     parent.add(story.name, () => {
       const Component = story.component;
