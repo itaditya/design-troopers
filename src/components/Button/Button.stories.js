@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { Button, TaskButton } from './';
-import buttonDoc from './Button.notes.md';
 
 export const buttonArgTypes = {
   appearance: {
@@ -29,7 +28,6 @@ export default {
   component: Button,
   subcomponents: { TaskButton },
   parameters: {
-    notes: buttonDoc,
     actions: { argTypesRegex: '^on.*' }
   },
   argTypes: buttonArgTypes,
